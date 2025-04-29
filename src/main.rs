@@ -74,7 +74,6 @@ fn main() {
         ),
         _ => {
             println!("Invalid operator. Please use +, -, *, or /.");
-            return;
         }
-    };
+    }
 }
