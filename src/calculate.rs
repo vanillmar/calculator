@@ -7,13 +7,7 @@ use crate::operator::Operator;
 
 pub fn calculate<T>(a: T, b: T, operator: Operator) -> Option<T>
 where
-    T: Add<Output = T>
-        + Sub<Output = T>
-        + Mul<Output = T>
-        + Div<Output = T>
-        + Copy
-        + std::cmp::PartialEq
-        + Zero,
+    T: Add<Output = T> + Sub<Output = T> + Mul<Output = T> + Div<Output = T> + Copy + Zero,
 {
     match operator {
         Operator::Add => Some(a + b),
@@ -31,3 +25,6 @@ where
 fn is_zero<T: Zero>(value: &T) -> bool {
     value.is_zero()
 }
+
+#[cfg(test)]
+mod tests;
