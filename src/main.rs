@@ -23,27 +23,20 @@ fn prompt_for_char(prompt: &str) -> char {
     io::stdin()
         .read_line(&mut input)
         .expect("Failed to read input");
-    input
-        .trim()
-        .chars()
-        .next()
-        .expect("Please enter a valid character")
+    input.trim().chars().next().expect("Please enter a valid character")
 }
 
 fn main() {
     println!("Calculator App");
-    println!("==================");
+    println!("====================================");
     println!("This is a simple calculator that performs basic arithmetic operations.");
     println!("You can add, subtract, multiply, and divide two numbers.");
-    println!("==================");
-    println!("==================");
+    println!("====================================");
 
     let first_value = prompt_for_number("Please enter the first number:");
     let second_value = prompt_for_number("Please enter the second number:");
 
-    let operator = prompt_for_char(
-        "Please enter the operation you want to perform (+:add, -:sub, *:mult, /:div):",
-    );
+    let operator = prompt_for_char("Please enter the operation you want to perform (+:add, -:sub, *:mult, /:div):");
 
     let result = match operator {
         '+' => calculate(first_value, second_value, Operator::Add),
